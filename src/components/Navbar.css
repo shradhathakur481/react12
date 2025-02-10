@@ -1,0 +1,146 @@
+/* Navbar Styling */
+.navbar-custom {
+    background: linear-gradient(to right, #f9f9f9, #ffffff);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    position: sticky;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navbar Brand */
+.navbar-custom .navbar-brand {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+    letter-spacing: 1.2px;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.navbar-custom .navbar-brand:hover {
+    color: #555;
+    transform: scale(1.05);
+}
+
+/* Navbar Links */
+.navbar-custom .navbar-nav {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-custom .nav-item {
+    margin: 0 15px;
+}
+
+/* Navigation Links */
+.navbar-custom .nav-link {
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #444;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+    padding: 8px 12px;
+    border-radius: 5px;
+}
+
+/* Remove underline for inactive links */
+.navbar-custom .nav-link::after {
+    content: "";
+    display: block;
+    height: 3px;
+    width: 0;
+    background: transparent; /* No underline for normal links */
+    transition: width 0.3s ease-in-out;
+    margin-top: 5px;
+}
+
+/* Hover effect */
+.navbar-custom .nav-link:hover {
+    color: #222;
+    transform: translateY(-3px);
+}
+
+/* Active Link - Only Active Link Shows Red Underline */
+.navbar-custom .nav-link.active {
+    color: #222 !important;
+    font-weight: bold;
+}
+
+/* Red underline only for active link */
+.navbar-custom .nav-link.active::after {
+    width: 100%;
+    background: red;
+}
+
+/* Navbar Toggler (for mobile view) */
+.navbar-toggler {
+    border: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+.navbar-toggler-icon {
+    width: 30px;
+    height: 3px;
+    background-color: #333;
+    display: block;
+    margin: 6px auto;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Toggle Effect */
+.navbar-toggler.open .navbar-toggler-icon:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbar-toggler.open .navbar-toggler-icon:nth-child(2) {
+    opacity: 0;
+}
+
+.navbar-toggler.open .navbar-toggler-icon:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Responsive Navbar - Mobile View */
+@media (max-width: 992px) {
+    .navbar-custom {
+        padding: 10px;
+    }
+
+    .navbar-custom .navbar-nav {
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.9);
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        display: none;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .navbar-custom .nav-item {
+        margin: 10px 0;
+    }
+
+    .navbar-custom .navbar-nav.open {
+        display: flex;
+    }
+}
+
+/* Ensure content doesn't overlap the navbar */
+body {
+    margin: 0;
+    padding: 0;
+}

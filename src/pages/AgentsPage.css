@@ -1,0 +1,192 @@
+/* Agents Page Styling */
+.agents-page {
+  text-align: center;
+  padding: 20px;
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  color: #333;
+}
+
+/* Hero Section */
+.agents-hero {
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  color: #333;
+  padding: 40px 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+  border: 2px solid #ddd;
+}
+
+.agents-hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.agents-hero p {
+  font-size: 1.2rem;
+  color: #555;
+}
+
+/* Search Bar */
+.search-container {
+  margin-bottom: 20px;
+}
+
+.search-container input {
+  width: 60%;
+  padding: 10px;
+  font-size: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  margin-right: 10px;
+  background: #fff;
+  color: #333;
+}
+
+.search-container button {
+  background: #333;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-container button:hover {
+  background: white;
+  color: #333;
+  border: 2px solid #333;
+}
+
+/* Agents Grid */
+.agents-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+/* Agent Cards */
+.agent-card {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 280px; /* Fixed size */
+  text-align: center;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.agent-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.agent-card img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Contact Button */
+.contact-btn {
+  background: #333;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-top: 10px;
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.contact-btn:hover {
+  background: white;
+  color: #333;
+  transform: scale(1.05);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Why Choose Us Section */
+.why-choose {
+  background: #f8f9fa;
+  padding: 30px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.why-list {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.why-item {
+  background: white;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  width: 30%;
+  transition: transform 0.3s ease-in-out;
+}
+
+.why-item:hover {
+  transform: translateY(-5px);
+}
+
+/* Contact Agents Section */
+.contact-agents {
+  margin-top: 30px;
+  padding: 30px;
+  background: linear-gradient(to right, #f9f9f9, #ffffff);
+  color: #333;
+  border-radius: 10px;
+  border: 2px solid #ddd;
+}
+
+.contact-agents .contact-btn {
+  background: #333;
+  color: white;
+  font-weight: bold;
+}
+
+.contact-agents .contact-btn:hover {
+  background: #555;
+  color: white;
+  transform: scale(1.1);
+}
+
+/* No Results Message */
+.no-results {
+  font-size: 1.2rem;
+  color: red;
+  margin-top: 20px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .agents-hero h1 {
+    font-size: 2rem;
+  }
+
+  .agents-hero p {
+    font-size: 1rem;
+  }
+
+  .search-container input {
+    width: 80%;
+  }
+
+  .why-list {
+    flex-direction: column;
+  }
+
+  .why-item {
+    width: 100%;
+  }
+}
