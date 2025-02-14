@@ -4,53 +4,71 @@ import { FaFacebookF, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa"
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-const Footer = () => {
+const Footer = ({ 
+  companyName = "HomeHaven", 
+  links = [
+    { name: "Home", url: "/" },
+    { name: "Properties", url: "/properties" },
+    { name: "Agents", url: "/agents" },
+    { name: "Testimonials", url: "/testimonials" },
+    { name: "Contact", url: "/contact" }
+  ], 
+  contact = {
+    address: "123 Main Street, New York, NY",
+    phone: "+1 123 456 7890",
+    email: "info@homehaven.com"
+  },
+  socialMedia = {
+    facebook: "#",
+    twitter: "#",
+    instagram: "#",
+    linkedin: "#"
+  }
+}) => {
   useEffect(() => {
-    AOS.init({ duration: 1000 }); // Initialize AOS with animation duration
+    AOS.init({ duration: 1000 });
   }, []);
 
   return (
     <footer className="footer">
       <div className="footer-container">
       
-        {/* About Section with Fade-in Effect */}
+        {/* About Section */}
         <div className="footer-about" data-aos="fade-up">
-          <h2>HomeHaven</h2>
+          <h2>{companyName}</h2>
           <p>Your dream home is just a step away. Find the best properties with us.</p>
         </div>
 
-        {/* Quick Links with Slide-in Animation */}
+        {/* Quick Links */}
         <div className="footer-links" data-aos="fade-right">
           <h3>Quick Links</h3>
           <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Properties</a></li>
-            <li><a href="#">Agents</a></li>
-            <li><a href="#">Testimonials</a></li>
-            <li><a href="#">Contact</a></li>
+            {links.map((link, index) => (
+              <li key={index}><a href={link.url}>{link.name}</a></li>
+            ))}
           </ul>
         </div>
 
-        {/* Contact Section with Slide-in Animation */}
+        {/* Contact Section */}
         <div className="footer-contact" data-aos="fade-left">
           <h3>Contact Us</h3>
-          <p>📍 123 Main Street, New York, NY</p>
-          <p>📞 +1 123 456 7890</p>
-          <p>✉ info@homehaven.com</p>
+          <p>📍 {contact.address}</p>
+          <p>📞 {contact.phone}</p>
+          <p>✉ {contact.email}</p>
 
-          {/* Social Media Icons with Zoom-in Effect */}
+          {/* Social Media Icons */}
           <div className="social-icons" data-aos="zoom-in">
-            <a href="#"><FaFacebookF /></a>
-            <a href="#"><FaTwitter /></a>
-            <a href="#"><FaInstagram /></a>
-            <a href="#"><FaLinkedin /></a>
+            <a href={socialMedia.facebook}><FaFacebookF /></a>
+            <a href={socialMedia.twitter}><FaTwitter /></a>
+            <a href={socialMedia.instagram}><FaInstagram /></a>
+            <a href={socialMedia.linkedin}><FaLinkedin /></a>
           </div>
         </div>
       </div>
 
-      {/* Footer Bottom with Fade-up Effect */}
+      {/* Footer Bottom */}
       <div className="footer-bottom" data-aos="fade-up">
-        <p>&copy; 2025 HomeHaven. All rights reserved.</p>
+        <p>&copy; 2025 {companyName}. All rights reserved.</p>
       </div>
     </footer>
   );

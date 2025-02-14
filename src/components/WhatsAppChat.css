@@ -1,0 +1,19 @@
+.whatsapp-chat {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  .whatsapp-chat a {
+    display: inline-block;
+    background-color: #25d366;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  .whatsapp-chat a:hover {
+    background-color: #1ebe57;
+  }
+  

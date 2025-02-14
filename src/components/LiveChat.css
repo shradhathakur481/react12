@@ -1,0 +1,19 @@
+.live-chat {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .live-chat p {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .live-chat a {
+    color: #007bff;
+    text-decoration: none;
+  }
+  
+  .live-chat a:hover {
+    text-decoration: underline;
+  }
+  

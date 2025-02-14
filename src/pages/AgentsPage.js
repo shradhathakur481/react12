@@ -14,15 +14,18 @@ const AgentsPage = () => {
     AOS.init({ duration: 1000, offset: 100, easing: "ease-in-out", once: false });
   }, []);
 
+  // ✅ Function to handle View Contact button click
+  const handleViewContact = (agentId) => {
+    console.log(`Navigating to agent contact page for ID: ${agentId}`);
+    navigate(`/agent-contact/${agentId}`);
+  };
+
   return (
     <div className="agents-page">
       {/* Hero Section */}
       <div className="agents-hero" data-aos="fade-down">
         <h1>Meet Our Professional HomeHaven Agents</h1>
-        <p>
-          Our highly skilled real estate professionals are here to guide you 
-          through buying, selling, or renting properties with expertise and care.
-        </p>
+        <p>Our highly skilled real estate professionals are here to assist you.</p>
       </div>
 
       {/* Search Bar */}
@@ -36,18 +39,9 @@ const AgentsPage = () => {
         <button>🔍 Search</button>
       </div>
 
-      {/* Agents List */}
+      {/* ✅ Pass handleViewContact as a prop */}
       <div data-aos="fade-up" data-aos-delay="200">
-        <Agents searchTerm={searchTerm} />
-      </div>
-
-      {/* Contact Agents Section */}
-      <div className="contact-agents" data-aos="zoom-in">
-        <h2>Contact Our Agents Today!</h2>
-        <p>Have any questions? Our agents are ready to assist you.</p>
-        <button className="contact-btn" onClick={() => navigate("/contact")}>
-          Get in Touch
-        </button>
+        <Agents searchTerm={searchTerm} onViewContact={handleViewContact} />
       </div>
     </div>
   );

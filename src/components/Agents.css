@@ -1,67 +1,93 @@
+/* Agents Section */
 .agents-container {
   text-align: center;
-  padding: 20px;
+  padding: 50px 20px;
+  background: linear-gradient(to right, #f9f9f9, #ffffff); /* Same as Footer */
 }
 
-.agents-grid {
+.agents-heading {
+  font-size: 2.5rem;
+  color: #222;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.agents-subtext {
+  font-size: 1.3rem;
+  color: #555;
+  margin-bottom: 40px;
+}
+
+.agents-list {
   display: flex;
-  gap: 20px;
-  justify-content: center;
   flex-wrap: wrap;
-}
-
-.agent-card {
-  background: #fff;
-  padding: 15px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  text-align: center;
-  width: 250px;
-}
-
-.agent-image {
-  width: 100%;
-  border-radius: 10px;
-}
-
-.contact-btn {
-  background: #007bff;
-  color: #fff;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-.contact-btn:hover {
-  background: #0056b3;
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
   justify-content: center;
+  gap: 25px;
 }
 
-.modal-content {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+/* 🔹 Modern Profile Card */
+.agent-card {
+  background: linear-gradient(to right, #ffffff, #f9f9f9);
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
   text-align: center;
-  width: 300px;
+  width: 320px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  border: 3px solid #ddd;
+  position: relative;
 }
 
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
+.agent-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  border-color: #555;
+}
+
+/* 🔹 Stylish Image */
+.agent-photo {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  margin-bottom: 15px;
+  border-radius: 10px; /* Soft rounded corners */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease-in-out;
+}
+
+.agent-photo:hover {
+  transform: scale(1.05);
+}
+
+/* Text Styles */
+.agent-card h3 {
+  font-size: 1.6rem;
+  color: #222;
+  margin-bottom: 10px;
+  font-weight: bold;
+}
+
+.agent-card p {
+  font-size: 1.1rem;
+  color: #444;
+  margin: 6px 0;
+}
+
+/* 🔹 Updated Contact Button (Footer Theme Colors) */
+.view-contact-btn {
+  background: linear-gradient(to right, #f9f9f9, #ffffff); /* Matching Footer */
+  color: #333;
+  border: 2px solid #ddd;
+  padding: 12px 20px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
   cursor: pointer;
-  font-size: 24px;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.view-contact-btn:hover {
+  background: linear-gradient(to right, #ffffff, #f9f9f9);
+  border-color: #555;
+  transform: scale(1.1);
 }

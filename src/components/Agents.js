@@ -1,131 +1,46 @@
-import React, { useState, useEffect } from "react";
-import AOS from "aos";
-import "aos/dist/aos.css";
-import "./Agents.css"; // Import CSS
+import React from "react";
+import { useNavigate } from "react-router-dom";
+import "./Agents.css";
 
-const Agents = ({ searchTerm = "" }) => {
-  const [selectedAgent, setSelectedAgent] = useState(null);
-
-  useEffect(() => {
-    AOS.init({
-      duration: 1000, // Animation duration
-      easing: "ease-in-out",
-      once: true, // Ensures animation happens once
-    });
-  }, []);
+const Agents = ({ searchTerm }) => {
+  const navigate = useNavigate();
 
   const agents = [
-    {
-      id: 1,
-      image: "https://images.pexels.com/photos/8867435/pexels-photo-8867435.jpeg?auto=compress&cs=tinysrgb&w=600",
-      name: "Sushant Chandel",
-      experience: "10 Years",
-      specialization: "Residential & Luxury Homes",
-      location: "New Delhi, India",
-      phone: "+91 98765 43210",
-      license: "RE-2023-001",
-      contact: "sushant@email.com",
-    },
-    {
-      id: 2,
-      image: "https://images.pexels.com/photos/7709208/pexels-photo-7709208.jpeg?auto=compress&cs=tinysrgb&w=600",
-      name: "Anchal Sharma",
-      experience: "8 Years",
-      specialization: "Commercial Properties",
-      location: "Mumbai, India",
-      phone: "+91 98765 67890",
-      license: "RE-2023-002",
-      contact: "anchal@email.com",
-    },
-    {
-      id: 3,
-      image: "https://images.pexels.com/photos/7682204/pexels-photo-7682204.jpeg?auto=compress&cs=tinysrgb&w=600",
-      name: "Samriti Verma",
-      experience: "12 Years",
-      specialization: "Luxury Villas & Apartments",
-      location: "Bangalore, India",
-      phone: "+91 98765 12345",
-      license: "RE-2023-003",
-      contact: "samriti@email.com",
-    },
-    {
-      id: 4,
-      image: "https://images.pexels.com/photos/7682103/pexels-photo-7682103.jpeg?auto=compress&cs=tinysrgb&w=600",
-      name: "Masum Raza",
-      experience: "7 Years",
-      specialization: "Rental & Investment Properties",
-      location: "Hyderabad, India",
-      phone: "+91 98765 54321",
-      license: "RE-2023-004",
-      contact: "masum@email.com",
-    },
+    { id: 1, name: "Arnav", email: "arnav@example.com", phone: "123-456-7890", address: "123 Main St, New York", image: "https://img.freepik.com/free-photo/handsome-businessman-offering-handshake_144627-28925.jpg?ga=GA1.1.2050145430.1739001747&semt=ais_hybrid" },
+    { id: 2, name: "Animesh Smith", email: "Animesh@example.com", phone: "987-654-3210", address: "456 Oak St", image: "https://img.freepik.com/free-photo/image-handsome-businessman-black-suit-holding-document-pointing-finger-camera-praising-good-job-standing-against-white-background_1258-65190.jpg?ga=GA1.1.2050145430.1739001747&semt=ais_hybrid" },
+    { id: 3, name: "Michael Johnson", email: "michael@example.com", phone: "555-678-1234", address: "789 Pine St, Chicago, IL", image: "https://img.freepik.com/free-photo/handsome-telemarketer-man-with-thumb-up_1368-7226.jpg?ga=GA1.1.2050145430.1739001747&semt=ais_hybrid" },
+    { id: 4, name: "Sarah Williams", email: "sarah@example.com", phone: "444-789-2222", address: "321 Cedar St, Miami", image: "https://img.freepik.com/free-photo/smiling-business-woman-record-voice-message-speaking-into-microphone-mobile-phone-sitting-near-fo_1258-118565.jpg?ga=GA1.1.2050145430.1739001747&semt=ais_hybrid" },
   ];
 
+  // ✅ Filter agents based on searchTerm
   const filteredAgents = agents.filter((agent) =>
-    agent.name.toLowerCase().includes(searchTerm.toLowerCase())
+    agent?.name?.toLowerCase().includes(searchTerm?.toLowerCase() || "")
   );
 
+  // ✅ Function to navigate to AgentContactPage
+  const handleViewContact = (agentId) => {
+    navigate(`/agent/${agentId}`);
+  };
+
   return (
-    <div className="agents-container" data-aos="fade-up">
-      <h1 className="agents-heading" data-aos="fade-right">Our Agents</h1>
-
-      {filteredAgents.length === 0 ? (
-        <p className="no-results" data-aos="zoom-in">⚠ No agents found for "{searchTerm}"</p>
-      ) : (
-        <div className="agents-grid">
-          {filteredAgents.map((agent, index) => (
-            <div key={agent.id} className="agent-card" data-aos="flip-left" data-aos-delay={index * 100}>
-              <img src={agent.image} alt={agent.name} className="agent-image" />
-              <h2>{agent.name}</h2>
-              <p>
-                <strong>Experience:</strong> {agent.experience}
-              </p>
-              <button
-                className="contact-btn"
-                onClick={() => setSelectedAgent(agent)}
-                data-aos="fade-up"
-              >
-                View Contact
-              </button>
-            </div>
-          ))}
-        </div>
-      )}
-
-      {selectedAgent && (
-        <div className="modal-overlay" onClick={() => setSelectedAgent(null)} data-aos="zoom-in">
-          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
-            <span className="close-btn" onClick={() => setSelectedAgent(null)}>
-              &times;
-            </span>
-            <img
-              src={selectedAgent.image}
-              alt={selectedAgent.name}
-              className="modal-image"
-              data-aos="zoom-in"
-            />
-            <h2>{selectedAgent.name}</h2>
-            <p>
-              <strong>Specialization:</strong> {selectedAgent.specialization}
-            </p>
-            <p>
-              <strong>Location:</strong> {selectedAgent.location}
-            </p>
-            <p>
-              <strong>Phone:</strong> {selectedAgent.phone}
-            </p>
-            <p>
-              <strong>License:</strong> {selectedAgent.license}
-            </p>
-            <p>
-              <strong>Email:</strong>{" "}
-              <a href={`mailto:${selectedAgent.contact}`}>
-                {selectedAgent.contact}
-              </a>
-            </p>
+    <div className="agents-container">
+      <h2 className="agents-heading">Meet Our Trusted Agents</h2>
+      <p className="agents-subtext">Find the best agents to help you with your property needs.</p>
+      
+      <div className="agents-list">
+        {filteredAgents.map((agent) => (
+          <div key={agent.id} className="agent-card">
+            <img src={agent.image} alt={agent.name} className="agent-photo" />
+            <h3>{agent.name}</h3>
+            <p><strong>Email:</strong> {agent.email}</p>
+            <p><strong>Phone:</strong> {agent.phone}</p>
+            <p><strong>Address:</strong> {agent.address}</p>
+            <button className="view-contact-btn" onClick={() => handleViewContact(agent.id)}>
+              View Contact
+            </button>
           </div>
-        </div>
-      )}
+        ))}
+      </div>
     </div>
   );
 };
